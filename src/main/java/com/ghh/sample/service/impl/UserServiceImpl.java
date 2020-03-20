@@ -85,9 +85,7 @@ public class UserServiceImpl implements UserService {
         try {
             out = new ByteArrayOutputStream();
             wb.write(out);
-//            wb.close();
             InputStream in = new ByteArrayInputStream(out.toByteArray());
-            out.close();
             return in;
         } catch (Exception e) {
             e.printStackTrace();
