@@ -12,12 +12,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Date;
 
 @Controller
 public class ApplicationController {
@@ -42,7 +44,8 @@ public class ApplicationController {
     @GetMapping("/test")
     @ResponseBody
     public ResponseData testAAA() {
-        return ResponseData.ok();
+        Date d = new Date();
+        return ResponseData.ok(d);
     }
 
     @GetMapping("/download")
