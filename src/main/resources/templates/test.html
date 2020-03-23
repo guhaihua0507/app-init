@@ -3,8 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <style>
+        #test {
+            position: absolute;
+            top:0;
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
-haha asda dsad a
+<div id="test">
+    test
+</div>
+<script>
+    $(function() {
+        $("#test").on("swipe", function(e) {
+           console.log("swip ..", e);
+        });
+    });
+</script>
 </body>
 </html>
