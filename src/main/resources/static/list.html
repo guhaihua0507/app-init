@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .data-table {
+            /*border: 1px solid;*/
+        }
+        .data-table td {
+            /*border-left: 1px solid;*/
+            padding: 4px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div>
+        <table class="data-table" align="center" border="1px" cellspacing="0">
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>phone</th>
+            </tr>
+            <tbody>
+            <tr v-for="(item, index) in dataList" :key="index">
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.phone}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            dataList: [
+                {
+                    id: '1',
+                    name: 'ghh',
+                    phone: '123'
+                }
+            ]
+        },
+        mounted: function () {
+        }
+    })
+</script>
+</body>
+</html>
