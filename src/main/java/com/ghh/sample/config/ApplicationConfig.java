@@ -10,6 +10,7 @@ public class ApplicationConfig implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/**")
                 .excludePathPatterns("/test",
-                        "/download");
+                        "/download",
+                        "/testInsertList");
     }
 }

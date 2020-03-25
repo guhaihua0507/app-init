@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public void createUser(User user) {
-        userMapper.insert(user);
+//        userMapper.insert(user);
     }
 
 
