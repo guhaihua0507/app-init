@@ -8,9 +8,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class ApplicationConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/**")
-                .excludePathPatterns("/test",
+        registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/api/**")
+                .excludePathPatterns(
+                        "/test",
                         "/download",
-                        "/testInsertList");
+                        "/testInsertList")
+                .excludePathPatterns("/swagger-resources/**", "/webjars/**", "/v2/**", "/swagger-ui.html/**");
     }
 }

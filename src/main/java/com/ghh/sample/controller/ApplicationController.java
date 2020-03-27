@@ -4,6 +4,8 @@ import com.ghh.sample.mapper.UserMapper;
 import com.ghh.sample.model.entity.User;
 import com.ghh.sample.model.vo.ResponseData;
 import com.ghh.sample.service.UserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.InputStreamSource;
@@ -26,11 +28,13 @@ import java.util.List;
 import java.util.UUID;
 
 @Controller
+@Api(tags = "Application Level api")
 public class ApplicationController {
     @Autowired
     private UserService userService;
 
     @GetMapping("/index")
+    @ApiOperation("test")
     public ModelAndView test(ModelAndView mv) {
         mv.setViewName("/index");
         return mv;
@@ -38,6 +42,7 @@ public class ApplicationController {
 
     @PostMapping("/user")
     @ResponseBody
+    @ApiOperation("测试创建用户")
     public ResponseData testCreate() {
         User u = new User();
         u.setName("guhaihua");
@@ -53,6 +58,7 @@ public class ApplicationController {
     }
 
     @GetMapping("/download")
+    @ApiOperation("下载")
     public ResponseEntity<InputStreamSource> download() throws IOException {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
