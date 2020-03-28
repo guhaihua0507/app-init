@@ -14,5 +14,7 @@ public class ApplicationConfig implements WebMvcConfigurer {
                         "/download",
                         "/testInsertList")
                 .excludePathPatterns("/swagger-resources/**", "/webjars/**", "/v2/**", "/swagger-ui.html/**");
+
+        registry.addInterceptor(new AppInterceptor());
     }
 }
