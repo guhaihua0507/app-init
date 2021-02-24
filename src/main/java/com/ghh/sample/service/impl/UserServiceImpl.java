@@ -1,7 +1,9 @@
 package com.ghh.sample.service.impl;
 
+import com.ghh.sample.mapper.AppBaseMapper;
 import com.ghh.sample.mapper.UserMapper;
 import com.ghh.sample.model.entity.User;
+import com.ghh.sample.service.AbstractBaseEntityService;
 import com.ghh.sample.service.UserService;
 import org.apache.commons.lang3.RandomUtils;
 import org.apache.poi.ss.usermodel.CellType;
@@ -26,12 +28,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Service
-public class UserServiceImpl implements UserService {
+@Service("UserService")
+public class UserServiceImpl extends AbstractBaseEntityService<User> implements UserService  {
     private Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 
     @Autowired
     private UserMapper userMapper;
+
+    @Override
+    public AppBaseMapper<User> getEntityMapper() {
+        return userMapper;
+    }
 
     @Override
     @Transactional
@@ -39,6 +46,11 @@ public class UserServiceImpl implements UserService {
 //        userMapper.insert(user);
     }
 
+    @Override
+    public List<User> listUsers() {
+//        return userMapper.selectAll();
+        return userMapper.getAllUser();
+    }
 
     @Override
     public InputStream genExcel() throws IOException {
@@ -78,6 +90,12 @@ public class UserServiceImpl implements UserService {
             return exportAsInputStream(wb);
 
         }
+    }
+
+    @Override
+    public String getUserName(String id) {
+        System.out.println("running get user Service");
+        return "User-" + id;
     }
 
     private InputStream exportAsInputStream(Workbook wb) {

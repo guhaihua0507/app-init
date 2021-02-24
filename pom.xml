@@ -11,7 +11,7 @@
     <groupId>com.ghh</groupId>
     <artifactId>app-init</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springboot-webapp-sample</name>
+    <name>app-init</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
