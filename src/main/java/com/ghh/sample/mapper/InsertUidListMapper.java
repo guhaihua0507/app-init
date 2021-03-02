@@ -17,11 +17,11 @@ import java.util.Set;
 public interface InsertUidListMapper<T> {
 
     @Options(useGeneratedKeys = true, keyProperty = "uid")
-    @InsertProvider(type = SqlProvier.class, method = "insertList")
+    @InsertProvider(type = SqlProvider.class, method = "insertList")
     int insertList(List<T> recordList);
 
-    class SqlProvier extends MapperTemplate {
-        public SqlProvier(Class<?> mapperClass, MapperHelper mapperHelper) {
+    class SqlProvider extends MapperTemplate {
+        public SqlProvider(Class<?> mapperClass, MapperHelper mapperHelper) {
             super(mapperClass, mapperHelper);
         }
 
