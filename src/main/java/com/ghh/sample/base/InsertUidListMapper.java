@@ -1,4 +1,4 @@
-package com.ghh.sample.mapper;
+package com.ghh.sample.base;
 
 import org.apache.ibatis.annotations.InsertProvider;
 import org.apache.ibatis.annotations.Options;

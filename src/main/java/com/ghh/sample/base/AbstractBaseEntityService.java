@@ -1,4 +1,4 @@
-package com.ghh.sample.service;
+package com.ghh.sample.base;
 
 import tk.mybatis.mapper.entity.Condition;
 
@@ -33,7 +33,7 @@ public abstract class AbstractBaseEntityService<T> implements IBaseEntityService
      */
     @Override
     public List<T> selectByCondition(Condition condition) {
-        return getEntityMapper().selectByExample(condition);
+        return getEntityMapper().selectByCondition(condition);
     }
 
     /**
@@ -74,7 +74,7 @@ public abstract class AbstractBaseEntityService<T> implements IBaseEntityService
      */
     @Override
     public int updateByCondition(T record, Condition condition) {
-        return getEntityMapper().updateByExample(record, condition);
+        return getEntityMapper().updateByCondition(record, condition);
     }
 
     /**
@@ -85,7 +85,7 @@ public abstract class AbstractBaseEntityService<T> implements IBaseEntityService
      */
     @Override
     public int updateByConditionSelective(T record, Condition condition) {
-        return getEntityMapper().updateByExampleSelective(record, condition);
+        return getEntityMapper().updateByConditionSelective(record, condition);
     }
 
     /**
@@ -103,7 +103,7 @@ public abstract class AbstractBaseEntityService<T> implements IBaseEntityService
      */
     @Override
     public void deleteByCondition(Condition condition) {
-        getEntityMapper().deleteByExample(condition);
+        getEntityMapper().deleteByCondition(condition);
     }
 
     public Class<?> getEntityClass() {

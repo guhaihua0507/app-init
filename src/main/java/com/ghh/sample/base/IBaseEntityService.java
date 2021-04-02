@@ -1,6 +1,5 @@
-package com.ghh.sample.service;
+package com.ghh.sample.base;
 
-import com.ghh.sample.mapper.AppBaseMapper;
 import tk.mybatis.mapper.entity.Condition;
 
 import java.util.List;

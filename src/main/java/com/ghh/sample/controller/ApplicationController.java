@@ -1,6 +1,5 @@
 package com.ghh.sample.controller;
 
-import com.ghh.sample.exceptions.GlobalResponseException;
 import com.ghh.sample.mapper.UserMapper;
 import com.ghh.sample.model.entity.User;
 import com.ghh.sample.model.vo.ResponseData;
@@ -14,15 +13,14 @@ import org.springframework.core.io.InputStreamSource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -50,6 +48,13 @@ public class ApplicationController {
         u.setName("guhaihua");
         userService.createUser(u);
         return ResponseData.ok(u);
+    }
+
+    @GetMapping("/user/list")
+    @ResponseBody
+    public ResponseData listUsers(HttpSession session) {
+        PageHelper.startPage(1, 10);
+        return ResponseData.ok(userService.listUsers());
     }
 
     @GetMapping("/test")

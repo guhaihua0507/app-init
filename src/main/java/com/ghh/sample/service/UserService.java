@@ -1,5 +1,6 @@
 package com.ghh.sample.service;
 
+import com.ghh.sample.base.IBaseEntityService;
 import com.ghh.sample.model.entity.User;
 
 import java.io.IOException;

@@ -1,9 +1,9 @@
 package com.ghh.sample.service.impl;
 
-import com.ghh.sample.mapper.AppBaseMapper;
+import com.ghh.sample.base.AbstractBaseEntityService;
+import com.ghh.sample.base.AppBaseMapper;
 import com.ghh.sample.mapper.UserMapper;
 import com.ghh.sample.model.entity.User;
-import com.ghh.sample.service.AbstractBaseEntityService;
 import com.ghh.sample.service.UserService;
 import org.apache.commons.lang3.RandomUtils;
 import org.apache.poi.ss.usermodel.CellType;
